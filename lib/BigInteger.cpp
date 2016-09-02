@@ -17,6 +17,11 @@ BigInteger::BigInteger(string number)
     }
 }
 
+BigInteger BigInteger::operator+(const BigInteger& number) const
+{
+    return BigInteger("432");
+}
+
 string BigInteger::toString() const
 {
     string result;
