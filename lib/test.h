@@ -6,7 +6,7 @@
 
 #define BEGIN_TEST() testResults results = {};
 #define END_TEST() printResults(results);
-#define ASSERT_EQUALS(X, Y) assert(results, #X" should be equal to "#Y, X == Y)
+#define ASSERT_EQUALS(X, Y) assert(results, #X" should be equal to "#Y", got \"" + X + '"', X == Y)
 
 typedef struct {
     int failed;

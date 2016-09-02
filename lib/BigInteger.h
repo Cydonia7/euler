@@ -1,11 +1,16 @@
 #pragma once
 
 #include <string>
+#include <vector>
 
-#define BASE 1000000
+#define DIGITS_PER_PART 4
 
 class BigInteger {
     public:
         BigInteger(std::string number);
+        std::string toString() const;
+
+    private:
+        std::vector<uint32_t> decomposition;
 };
 
