@@ -92,6 +92,20 @@ BigInteger BigInteger::operator*(const BigInteger& number) const
     return BigInteger(result);
 }
 
+BigInteger BigInteger::power(const int number) const
+{
+    if (number == 1) {
+        return *this;
+    }
+    
+    if (number % 2 == 0) {
+        BigInteger half = power(number / 2);
+        return half * half;
+    }
+
+    return power(1) * power(number - 1);
+}
+
 bool BigInteger::operator==(const BigInteger& number) const
 {
     return decomposition == number.decomposition;

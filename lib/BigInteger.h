@@ -16,6 +16,7 @@ class BigInteger {
         std::string toString() const;
         BigInteger operator+(const BigInteger& number) const;
         BigInteger operator*(const BigInteger& number) const;
+        BigInteger power(const int number) const;
         bool operator==(const BigInteger& number) const;
         bool operator!=(const BigInteger& number) const;
 

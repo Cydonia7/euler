@@ -26,6 +26,9 @@ int main()
     ASSERT_EQUALS(BigInteger(12345) * BigInteger(56789), BigInteger("701060205"));
     ASSERT_EQUALS(BigInteger("99912345789999") * BigInteger("12803790127641293087"), BigInteger("1279256706655472308200952912436913"));
 
+    // Power
+    ASSERT_EQUALS(BigInteger(2).power(100), BigInteger("1267650600228229401496703205376"));
+
     END_TEST();
 
     return 0;
