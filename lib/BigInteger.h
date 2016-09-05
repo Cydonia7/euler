@@ -35,4 +35,5 @@ class BigInteger {
 };
 
 std::string prettyPrint(BigInteger number);
+std::ostream& operator<<(std::ostream& output, const BigInteger& number);
 

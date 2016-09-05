@@ -152,8 +152,13 @@ string BigInteger::toString() const
     return result;
 }
 
-std::string prettyPrint(BigInteger number)
+string prettyPrint(BigInteger number)
 {
     return "BigInteger(\"" + number.toString() + "\")";
 }
 
+ostream& operator<<(ostream& stream, const BigInteger& number)
+{
+    stream << number.toString();
+    return stream;
+}
