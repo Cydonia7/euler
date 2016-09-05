@@ -12,8 +12,10 @@ typedef uint32_t part;
 class BigInteger {
     public:
         BigInteger(std::string number);
+        BigInteger(int number);
         std::string toString() const;
         BigInteger operator+(const BigInteger& number) const;
+        BigInteger operator*(const BigInteger& number) const;
         bool operator==(const BigInteger& number) const;
         bool operator!=(const BigInteger& number) const;
 

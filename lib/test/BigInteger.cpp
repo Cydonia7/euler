@@ -11,6 +11,9 @@ int main()
     ASSERT_EQUALS(BigInteger("123456789987654321").toString(), "123456789987654321");
     ASSERT_EQUALS(BigInteger("10000000009").toString(), "10000000009");
 
+    // Construct from numbers
+    ASSERT_EQUALS(BigInteger("12345678"), BigInteger(12345678));
+
     // Equality testing
     ASSERT_EQUALS(BigInteger("12345678"), BigInteger("12345678"));
     ASSERT_NOT_EQUALS(BigInteger("12345678"), BigInteger("5678"));
@@ -20,7 +23,7 @@ int main()
     ASSERT_EQUALS(BigInteger("9999") + BigInteger("99999999"), BigInteger("100009998"));
 
     // Product
-    //ASSERT_EQUALS((BigInteger("123") * BigInteger("789")).toString(), "97047");
+    ASSERT_EQUALS(BigInteger(12345) * BigInteger(56789), BigInteger("701060205"));
 
     END_TEST();
 

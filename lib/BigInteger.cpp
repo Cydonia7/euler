@@ -17,6 +17,14 @@ BigInteger::BigInteger(string number)
     }
 }
 
+BigInteger::BigInteger(int number)
+{
+    while (number > 0) {
+        decomposition.push_back(number % BASE);
+        number /= BASE;
+    }
+}
+
 BigInteger::BigInteger(std::vector<part> parts) : decomposition(parts)
 {
 }
@@ -48,6 +56,11 @@ BigInteger BigInteger::operator+(const BigInteger& number) const
     }
 
     return BigInteger(result);
+}
+
+BigInteger BigInteger::operator*(const BigInteger& number) const
+{
+    return BigInteger("123");
 }
 
 bool BigInteger::operator==(const BigInteger& number) const
