@@ -17,9 +17,37 @@ BigInteger::BigInteger(string number)
     }
 }
 
+BigInteger::BigInteger(std::vector<part> parts) : decomposition(parts)
+{
+}
+
+part BigInteger::getPart(int i) const
+{
+    return decomposition.size() > i ? decomposition[i] : 0;
+}
+
 BigInteger BigInteger::operator+(const BigInteger& number) const
 {
-    return BigInteger("432");
+    vector<part> result;
+    int carry = 0;
+
+    for (int i = 0; i < max(decomposition.size(), number.decomposition.size()); i++) {
+        part sum = getPart(i) + number.getPart(i) + carry;
+        carry = 0;
+
+        if (sum >= BASE) {
+            carry = sum / BASE;
+            sum = sum % BASE;
+        }
+
+        result.push_back(sum);
+    }
+
+    if (carry > 0) {
+        result.push_back(carry);
+    }
+
+    return BigInteger(result);
 }
 
 string BigInteger::toString() const

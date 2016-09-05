@@ -5,7 +5,9 @@
 #include <cmath>
 
 #define DIGITS_PER_PART 4
-#define BASE pow(10, DIGITS_PER_PART)
+#define BASE (int) pow(10, DIGITS_PER_PART)
+
+typedef uint32_t part;
 
 class BigInteger {
     public:
@@ -14,6 +16,9 @@ class BigInteger {
         BigInteger operator+(const BigInteger& number) const;
 
     private:
-        std::vector<uint32_t> decomposition;
+        BigInteger(std::vector<part> parts);
+        part getPart(int i) const;
+
+        std::vector<part> decomposition;
 };
 
