@@ -6,8 +6,8 @@
 
 #define BEGIN_TEST() testResults results = {};
 #define END_TEST() printResults(results);
-#define ASSERT_EQUALS(X, Y) assert(results, #X" should be equal to "#Y", got " + prettyPrint(X), X == Y)
-#define ASSERT_NOT_EQUALS(X, Y) assert(results, #X" should not be equal to "#Y", got " + prettyPrint(X), X != Y)
+#define ASSERT_EQUALS(X, Y) { auto x = X; auto y = Y; assert(results, #X" should be equal to "#Y", got " + prettyPrint(x), x == y); }
+#define ASSERT_NOT_EQUALS(X, Y) { auto x = X; auto y = Y; assert(results, #X" should not be equal to "#Y", got " + prettyPrint(x), x != y); }
 
 typedef struct {
     int failed;
