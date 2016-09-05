@@ -116,12 +116,24 @@ bool BigInteger::operator!=(const BigInteger& number) const
     return !operator==(number);
 }
 
+BigInteger& BigInteger::operator+=(const BigInteger& number)
+{
+    *this = *this + number;
+    return *this;
+}
+
+BigInteger& BigInteger::operator*=(const BigInteger& number)
+{
+    *this = *this * number;
+    return *this;
+}
+
 BigInteger BigInteger::factorial(const int number)
 {
     BigInteger result(1);
 
     for (int i = 2; i <= number; i++) {
-        result = result * i;
+        result *= i;
     }
 
     return result;
