@@ -116,6 +116,17 @@ bool BigInteger::operator!=(const BigInteger& number) const
     return !operator==(number);
 }
 
+BigInteger BigInteger::factorial(const int number)
+{
+    BigInteger result(1);
+
+    for (int i = 2; i <= number; i++) {
+        result = result * i;
+    }
+
+    return result;
+}
+
 int BigInteger::digitSum() const
 {
     int result = 0;

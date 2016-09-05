@@ -21,6 +21,8 @@ class BigInteger {
         BigInteger operator*(const BigInteger& number) const;
         BigInteger power(const int number) const;
 
+        static BigInteger factorial(const int number);
+
         int digitSum() const;
 
         std::string toString() const;
