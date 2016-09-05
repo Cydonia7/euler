@@ -14,6 +14,8 @@ class BigInteger {
         BigInteger(std::string number);
         std::string toString() const;
         BigInteger operator+(const BigInteger& number) const;
+        bool operator==(const BigInteger& number) const;
+        bool operator!=(const BigInteger& number) const;
 
     private:
         BigInteger(std::vector<part> parts);
@@ -21,4 +23,6 @@ class BigInteger {
 
         std::vector<part> decomposition;
 };
+
+std::string prettyPrint(BigInteger number);
 

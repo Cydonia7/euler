@@ -50,6 +50,16 @@ BigInteger BigInteger::operator+(const BigInteger& number) const
     return BigInteger(result);
 }
 
+bool BigInteger::operator==(const BigInteger& number) const
+{
+    return decomposition == number.decomposition;
+}
+
+bool BigInteger::operator!=(const BigInteger& number) const
+{
+    return !operator==(number);
+}
+
 string BigInteger::toString() const
 {
     string result;
@@ -62,5 +72,10 @@ string BigInteger::toString() const
     result.erase(0, result.find_first_not_of('0'));
 
     return result;
+}
+
+std::string prettyPrint(BigInteger number)
+{
+    return "BigInteger(\"" + number.toString() + "\")";
 }
 

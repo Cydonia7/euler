@@ -6,8 +6,8 @@
 
 #define BEGIN_TEST() testResults results = {};
 #define END_TEST() printResults(results);
-#define ASSERT_EQUALS(X, Y) assert(results, #X" should be equal to "#Y", got \"" + X + '"', X == Y)
-#define ASSERT_NOT_EQUALS(X, Y) assert(results, #X" should not be equal to "#Y", got \"" + X + '"', X != Y)
+#define ASSERT_EQUALS(X, Y) assert(results, #X" should be equal to "#Y", got " + prettyPrint(X), X == Y)
+#define ASSERT_NOT_EQUALS(X, Y) assert(results, #X" should not be equal to "#Y", got " + prettyPrint(X), X != Y)
 
 typedef struct {
     int failed;
@@ -33,5 +33,10 @@ void assert(testResults &results, std::string message, bool condition)
         results.failed++;
         results.errors.push_back(message);
     }
+}
+
+std::string prettyPrint(std::string s)
+{
+    return '"' + s + '"';
 }
 
