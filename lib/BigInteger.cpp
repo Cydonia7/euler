@@ -60,7 +60,36 @@ BigInteger BigInteger::operator+(const BigInteger& number) const
 
 BigInteger BigInteger::operator*(const BigInteger& number) const
 {
-    return BigInteger("123");
+    vector<part> result(number.decomposition.size() + decomposition.size());
+
+    int mainShift = 0;
+
+    for (int numberPart : number.decomposition) {
+        int shift = mainShift++;
+
+        for (int thisPart : decomposition) {
+            BigInteger product(thisPart * numberPart);
+            
+            for (int i = 0; i < product.decomposition.size(); i++) {
+                result[shift + i] += product.decomposition[i];
+
+                int index = shift + i;
+                while (result[index] >= BASE) {
+                    int carry = result[index] / BASE;
+                    result[index] %= BASE;
+                    result[++index] += carry;
+                }
+            }
+
+            shift++;
+        }
+    }
+
+    while (result.back() == 0) {
+        result.pop_back();
+    }
+
+    return BigInteger(result);
 }
 
 bool BigInteger::operator==(const BigInteger& number) const
