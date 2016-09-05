@@ -13,12 +13,17 @@ class BigInteger {
     public:
         BigInteger(std::string number);
         BigInteger(int number);
-        std::string toString() const;
+
+        bool operator==(const BigInteger& number) const;
+        bool operator!=(const BigInteger& number) const;
+
         BigInteger operator+(const BigInteger& number) const;
         BigInteger operator*(const BigInteger& number) const;
         BigInteger power(const int number) const;
-        bool operator==(const BigInteger& number) const;
-        bool operator!=(const BigInteger& number) const;
+
+        int digitSum() const;
+
+        std::string toString() const;
 
     private:
         BigInteger(std::vector<part> parts);

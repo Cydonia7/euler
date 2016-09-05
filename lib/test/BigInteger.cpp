@@ -29,6 +29,9 @@ int main()
     // Power
     ASSERT_EQUALS(BigInteger(2).power(100), BigInteger("1267650600228229401496703205376"));
 
+    // Digit sum
+    ASSERT_EQUALS(BigInteger(123456).digitSum(), 21);
+
     END_TEST();
 
     return 0;

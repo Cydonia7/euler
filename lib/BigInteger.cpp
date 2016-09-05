@@ -116,6 +116,17 @@ bool BigInteger::operator!=(const BigInteger& number) const
     return !operator==(number);
 }
 
+int BigInteger::digitSum() const
+{
+    int result = 0;
+
+    for (char digit : toString()) {
+        result += digit - '0';
+    }
+
+    return result;
+}
+
 string BigInteger::toString() const
 {
     string result;
