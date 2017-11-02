@@ -1,0 +1,1 @@
+Solved using math : Number of multiples of 3 + Number of multiples of 5 - Number of multiples of 15

@@ -1,0 +1,6 @@
+A path in a lattice is n times to the right and n times to the bottom so there are
+
+/ 2n \
+\ n  /
+
+combinations.
